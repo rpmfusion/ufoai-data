@@ -2,7 +2,7 @@
 
 Name:		ufoai-data
 Version:	2.2.1
-Release:	2
+Release:	3
 Summary:	UFO: Alien Invasion data files
 
 Group:		Amusements/Games
@@ -46,6 +46,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Sun Mar 29 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 2.2.1-3
+- rebuild for new F11 features
+
 * Sun Aug 03 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info - 2.2.1-2
 - rebuild
 
