@@ -1,8 +1,8 @@
 %define game_name ufoai
 
 Name:		ufoai-data
-Version:	2.2.1
-Release:	3
+Version:	2.3
+Release:	1
 Summary:	UFO: Alien Invasion data files
 
 Group:		Amusements/Games
@@ -13,13 +13,23 @@ Source:		http://downloads.sourceforge.net/%{game_name}/%{game_name}-%{version}-d
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:	noarch
 
+%package server
+Summary:	UFO: Alien Invasion data files needed to run the server
+
 
 %description
 UFO: ALIEN INVASION is a strategy game featuring tactical combat
 against hostile alien forces which are about to infiltrate earth at
 this very moment.
 
-This package contains the data files needed to run the game.
+This package contains the data files needed to run the game client.
+
+%description server
+UFO: ALIEN INVASION is a strategy game featuring tactical combat
+against hostile alien forces which are about to infiltrate earth at
+this very moment.
+
+This package contains the data files needed to run the game server.
 
 
 %prep
@@ -42,10 +52,29 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{_datadir}/%{game_name}/
+%{_datadir}/%{game_name}/base/0media.pk3
+%{_datadir}/%{game_name}/base/0materials.pk3
+%{_datadir}/%{game_name}/base/0models.pk3
+%{_datadir}/%{game_name}/base/0music.pk3
+%{_datadir}/%{game_name}/base/0pics.pk3
+%{_datadir}/%{game_name}/base/0snd.pk3
+%{_datadir}/%{game_name}/base/0shaders.pk3
+
+
+%files server
+%defattr(-,root,root,-)
+%dir %{_datadir}/%{game_name}
+%dir %{_datadir}/%{game_name}/base
+%{_datadir}/%{game_name}/base/0base.pk3
+%{_datadir}/%{game_name}/base/0maps.pk3
+%{_datadir}/%{game_name}/base/0ufos.pk3
 
 
 %changelog
+* Tue Aug 17 2010 Karel Volny <kvolny@redhat.com> 2.3-1
+- Version bump
+- Split server subpackage
+
 * Sun Mar 29 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 2.2.1-3
 - rebuild for new F11 features
 
