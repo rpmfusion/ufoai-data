@@ -1,14 +1,16 @@
 %define game_name ufoai
 
 Name:		ufoai-data
-Version:	2.3
+Version:	2.3.1
 Release:	1
 Summary:	UFO: Alien Invasion data files
 
 Group:		Amusements/Games
 License:	GPLv2+
 URL:		http://ufoai.sourceforge.net/
-Source:		http://downloads.sourceforge.net/%{game_name}/%{game_name}-%{version}-data.tar
+Source0:	http://downloads.sourceforge.net/%{game_name}/%{game_name}-%{version}-data.tar
+# city maps hotfix
+Source1:	http://mattn.ninex.info/1maps.pk3
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:	noarch
@@ -44,6 +46,8 @@ This package contains the data files needed to run the game server.
 rm -rf %{buildroot}
 mkdir -p -m 0755 %{buildroot}%{_datadir}/%{game_name}
 cp -pr base %{buildroot}%{_datadir}/%{game_name}/
+# city maps hotfix
+install -m 644 %{SOURCE1} %{buildroot}%{_datadir}/%{game_name}/base/
 
 
 %clean
@@ -68,9 +72,16 @@ rm -rf %{buildroot}
 %{_datadir}/%{game_name}/base/0base.pk3
 %{_datadir}/%{game_name}/base/0maps.pk3
 %{_datadir}/%{game_name}/base/0ufos.pk3
+# city maps hotfix
+%{_datadir}/%{game_name}/base/1maps.pk3
 
 
 %changelog
+* Sat Mar 12 2011 Karel Volny <kvolny@redhat.com> 2.3.1-1
+- Version bump
+- Fixes RPMFusion bug #1546
+- Added city maps hotfix, see http://ufoai.ninex.info/wiki/index.php/News/2010#Hotfix_for_2.3.1
+
 * Tue Aug 17 2010 Karel Volny <kvolny@redhat.com> 2.3-1
 - Version bump
 - Split server subpackage
