@@ -2,7 +2,7 @@
 
 Name:		ufoai-data
 Version:	2.3.1
-Release:	1
+Release:	2
 Summary:	UFO: Alien Invasion data files
 
 Group:		Amusements/Games
@@ -77,6 +77,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Feb 09 2012 Nicolas Chauvet <kwizart@gmail.com> - 2.3.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
 * Sat Mar 12 2011 Karel Volny <kvolny@redhat.com> 2.3.1-1
 - Version bump
 - Fixes RPMFusion bug #1546
